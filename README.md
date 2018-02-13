@@ -23,4 +23,4 @@ The purpose of this code is to aid in training classifiers and generative deep-l
 
 To test the above API and script, run `python run_tests.py`.
 
-Future work code could involve extending the code to use any digit database to randomly sample images from.
+Future work could involve extending the code to use any digit database to randomly sample images from.
