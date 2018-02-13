@@ -7,6 +7,8 @@ To run as a script:
 
 `python generate_numbers_sequence.py -d DIGITS (space-separated ints) -r SPACING_RANGE (two space-separated ints) -w IMAGE_WIDTH (int)` optional arguments: `-a AUGMENTATION (str)`
 
+Currently the only augmentation supported is 'mnistm', which consists of mnist masks super-imposed on imagenet image backgrounds. A full mnistm dataset can be found [here](http://akanev.com/datasets).
+
 To call as an API in any python code:
 
 ```
