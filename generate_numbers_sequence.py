@@ -61,7 +61,7 @@ def generate_numbers_sequence(digits, spacing_range, image_width):
     through a directory of mnist images.
 
     Due to a compatibility problem with numpy in 2.7 vs 3.x, we must specify
-    and encoding for pkl.load() to read the mnist file properly.
+    an encoding for pkl.load() to read the mnist file properly.
     """
 
     data = pkl.load(open('mnist.pkl', 'rb'), encoding='latin1')
