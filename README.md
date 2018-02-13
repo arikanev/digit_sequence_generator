@@ -1,6 +1,6 @@
-## Digit Sequence Generator
+# Digit Sequence Generator
 
-# generate_numbers_sequence.py
+## generate_numbers_sequence.py
 A script and API for generating a sequence of mnist digits based on a specified input list of digits.
 
 To run as a script:
