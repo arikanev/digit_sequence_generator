@@ -33,7 +33,7 @@ optional arguments:
 
 Currently the augmentation supported is 'mnistm', which consists of mnist masks super-imposed on imagenet image backgrounds. A full mnistm dataset can be found [here](http://akanev.com/datasets).
 
-As of now you can only access augmentation options when running generate_numbers_sequence as a script.
+*(As of now you can only access augmentation options when running generate_numbers_sequence as a script.)*
 
 <br><br>
 ### To call as an API in python code:
