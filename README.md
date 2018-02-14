@@ -42,7 +42,7 @@ import generate_numbers_sequence
 sequence, height = generate_numbers_sequence.generate_numbers_sequence([digit_list], (range_tuple), width_int)
 ```
 
-`generate_numbers_sequence.generate_numbers_sequence([digit_list], (range_tuple), width_int)` will return a 2 values of:
+`generate_numbers_sequence.generate_numbers_sequence([digit_list], (range_tuple), width_int)` will return 2 values:
 
 * A numpy array of size `(height, width_int)` and dtype `float32`.
 * An int value representing sequence height.
