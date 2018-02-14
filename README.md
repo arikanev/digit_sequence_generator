@@ -5,15 +5,16 @@
 A script and API for generating and augmenting a sequence of digits based on a specified input list of digits. The purpose of this code is to aid in training classifiers and generative deep-learning models.
 
 Running `generate_numbers_sequence.py` with augmentation saves a pair of image sequences with the following filenames:
+
 (Where X is an integer denoting number of existing sequence files + 1)
-    - sequenceX.png
-    - aug_sequenceX.png
+    * sequenceX.png
+    * aug_sequenceX.png
 
 These files contain the exact same digit images in their sequences, and differ only by RGB and Greyscale value.
 
 `generate_numbers_sequence.py` is a semi-vectorized implementation:
-    - Time is saved by vectorizing the method to generate an image.
-    - Space is saved by recomputing the method to generate an image for every digit in an input list.
+    * Time is saved by vectorizing the method to generate an image.
+    * Space is saved by recomputing the method to generate an image for every digit in an input list.
 
 ### To run as a script:
 
@@ -35,12 +36,12 @@ sequence = generate_numbers_sequence.generate_numbers_sequence([digit_list], (ra
 To test the above API and script, run `python run_tests.py`.
 
 In the future, tests should be added to: 
-    - For the augment_sequence method:
-        - Assert the shape match between sequenceX.png and aug_sequenceX.png.
+    * For the augment_sequence method:
+        * Assert the shape match between sequenceX.png and aug_sequenceX.png.
      
-    - For generalizability/extensability:
-        - Ensure lack of runtime errors when generating images from other datasets.
+    * For generalizability/extensability:
+        * Ensure lack of runtime errors when generating images from other datasets.
 
 Future work should focus on:
-  - Expanding on the number of augmentation methods.
-  - Adding an option for sequence margins to be extended, as opposed to stretching the entire image.
+  * Expanding on the number of augmentation methods.
+  * Adding an option for sequence margins to be extended, as opposed to stretching the entire image.
