@@ -61,7 +61,7 @@ In the future, tests should be added to:
 
 <br><br>
 ### Future plans
-Should focus on:
+Could/Should focus on:
   
 * Expanding on the number of augmentation methods.
 * Adding an option for sequence margins to be extended, as opposed to stretching the entire image.
