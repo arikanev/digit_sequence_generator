@@ -44,7 +44,7 @@ import generate_numbers_sequence
 sequence = generate_numbers_sequence.generate_numbers_sequence([digit_list], (range_tuple), width_int)
 ```
 
-`generate_numbers_sequence.generate_numbers_sequence([digit_list], (range_tuple), width_int)` will return a numpy array of size `(28, width_int)` and dtype `float32`.
+`generate_numbers_sequence.generate_numbers_sequence([digit_list], (range_tuple), width_int)` will return a numpy array of size `(height, width_int)` and dtype `float32`.
 
 *(The height value is translated unchanged from the sampled digit image height)*
 
