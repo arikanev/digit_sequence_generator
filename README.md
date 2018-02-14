@@ -57,9 +57,7 @@ To test the above API and script, run `python run_tests.py`.
 In the future, tests should be added to: 
 
 * Assert the shape match between sequenceX.png and aug_sequenceX.png.
-*(For the augment_sequence method)*
-
-*Ensure lack of runtime errors when generating images from other datasets.
+* Ensure lack of runtime errors when generating images from other datasets.
 *(For generalizability/extensability)*
 
 <br><br>
