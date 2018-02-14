@@ -1,26 +1,46 @@
 # Digit Sequence Generator
 
 ## generate_numbers_sequence.py
-A script and API for generating a sequence of mnist digits based on a specified input list of digits.
 
-To run as a script:
+A script and API for generating and augmenting a sequence of digits based on a specified input list of digits. The purpose of this code is to aid in training classifiers and generative deep-learning models.
+
+Running `generate_numbers_sequence.py` with augmentation saves a pair of image sequences with the following filenames:
+(Where X is an integer denoting number of existing sequence files + 1)
+    - sequenceX.png
+    - aug_sequenceX.png
+
+These files contain the exact same digit images in their sequences, and differ only by RGB and Greyscale value.
+
+`generate_numbers_sequence.py` is a semi-vectorized implementation:
+    - Time is saved by vectorizing the method to generate an image.
+    - Space is saved by recomputing the method to generate an image for every digit in an input list.
+
+### To run as a script:
 
 `python generate_numbers_sequence.py -d DIGITS (space-separated ints) -r SPACING_RANGE (two space-separated ints) -w IMAGE_WIDTH (int)` optional arguments: `-a AUGMENTATION (str)`
 
 Currently the only augmentation supported is 'mnistm', which consists of mnist masks super-imposed on imagenet image backgrounds. A full mnistm dataset can be found [here](http://akanev.com/datasets).
 
-To call as an API in any python code:
+As of now you can only access augmentation options when running generate_numbers_sequence as a script.
+
+### To call as an API in any python code:
 
 ```
 import generate_numbers_sequence
 
 sequence = generate_numbers_sequence.generate_numbers_sequence([digit_list], (range_tuple), width_int)
 ```
-
-Note, as of now you can only access augmentation options when running generate_numbers_sequence as a script.
-
-The purpose of this code is to aid in training classifiers and generative deep-learning models. It is a semi-vectorized implementation where time is saved by computing an idx_mask for all mnist images at one time, and space is saved by recomputing the idx_mask for every input sequence digit.
+### Testing
 
 To test the above API and script, run `python run_tests.py`.
 
-Future work could involve extending the code to use any digit database for random image sampling.
+In the future, tests should be added to: 
+    - For the augment_sequence method:
+        - Assert the shape match between sequenceX.png and aug_sequenceX.png.
+     
+    - For generalizability/extensability:
+        - Ensure lack of runtime errors when generating images from other datasets.
+
+Future work should focus on:
+  - Expanding on the number of augmentation methods.
+  - Adding an option for sequence margins to be extended, as opposed to stretching the entire image.
