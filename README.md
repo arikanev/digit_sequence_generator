@@ -11,6 +11,7 @@ Running `generate_numbers_sequence.py` with augmentation saves a pair of image s
 
 *(Where X is an integer denoting number of existing sequence files + 1)*
 
+
 These files contain the exact same digit images in their sequences, and differ only by RGB and Greyscale value.
 
 `generate_numbers_sequence.py` is a semi-vectorized implementation:
