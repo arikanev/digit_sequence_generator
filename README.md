@@ -53,7 +53,6 @@ sequence = generate_numbers_sequence.generate_numbers_sequence([digit_list], (ra
 
 To test the above API and script, run `python run_tests.py`.
 
-<br><br>
 In the future, tests should be added to: 
 
 * Assert the shape match between sequenceX.png and aug_sequenceX.png.
@@ -61,7 +60,8 @@ In the future, tests should be added to:
 *(For generalizability/extensability)*
 
 <br><br>
-Future work should focus on:
+### Future plans
+Should focus on:
   
 * Expanding on the number of augmentation methods.
 * Adding an option for sequence margins to be extended, as opposed to stretching the entire image.
