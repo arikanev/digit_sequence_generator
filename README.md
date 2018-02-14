@@ -4,7 +4,6 @@
 
 A script and API for generating and augmenting a sequence of digits based on a specified input list of digits. The purpose of this code is to aid in training classifiers and generative deep-learning models.
 
-<br><br>
 Running `generate_numbers_sequence.py` with augmentation saves a pair of image sequences with the following filenames:
 
 * 'sequenceX.png'
