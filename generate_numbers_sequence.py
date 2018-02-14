@@ -47,9 +47,13 @@ def generate_numbers_sequence(digits, spacing_range, image_width):
 
     X, y = pool_data(data)
 
+    # Image height equals sampled image(s) height.
+
+    image_height = X[0].shape[0]
+
     # Initalize digit_sequence with (height, width) and fill with zeros.
 
-    digit_sequence = np.zeros((28, sample_spacing(spacing_range)))
+    digit_sequence = np.zeros((image_height, sample_spacing(spacing_range)))
 
     # Iterate through digits.
 
@@ -61,7 +65,7 @@ def generate_numbers_sequence(digits, spacing_range, image_width):
 
         # Generate a spacing.
 
-        spacing = np.zeros((28, sample_spacing(spacing_range)))
+        spacing = np.zeros((image_height, sample_spacing(spacing_range)))
 
         # Append digit to current sequence, and spacing to image.
 
@@ -69,11 +73,11 @@ def generate_numbers_sequence(digits, spacing_range, image_width):
 
     # Alter width
 
-    digit_sequence = alter_width(digit_sequence, image_width)
+    digit_sequence = alter_width(digit_sequence, image_height, image_width)
 
     # Return digit_sequence.
 
-    return digit_sequence
+    return digit_sequence, image_height
 
 
 def load_pickle(pklfile):
@@ -103,7 +107,9 @@ def pool_data(data):
 
     # Reshape images to fit a (height, width) construct.
 
-    X = X.reshape(70000, 28, 28)
+    h = w = int(np.sqrt(X[0].shape[0]))
+
+    X = X.reshape(len(X), h, w)
 
     # Horizontally append labels.
 
@@ -131,7 +137,7 @@ def sample_image(X, y, digit):
     idx_mask: numpy array of boolean values, specifying if
     mnist image at idx_mask matches the current digit in the sequence.
     """
-    idx_mask = (y == np.full((70000), digit))
+    idx_mask = (y == np.full((len(X)), digit))
 
     # Extract relevant images.
 
@@ -157,7 +163,7 @@ def numpy2im(digit_sequence):
     return Image.fromarray(np.uint8(digit_sequence * 255))
 
 
-def alter_width(digit_sequence, image_width):
+def alter_width(digit_sequence, image_height, image_width):
     """
     Use as helper method.
 
@@ -170,7 +176,8 @@ def alter_width(digit_sequence, image_width):
 
     # Resize generated image width by image_width pixels.
 
-    digit_sequence = digit_sequence.resize((image_width, 28), Image.ANTIALIAS)
+    digit_sequence = digit_sequence.resize((image_width, image_height),
+                                           Image.ANTIALIAS)
 
     # Convert PIL Image object to numpy array.
 
@@ -179,18 +186,29 @@ def alter_width(digit_sequence, image_width):
     return digit_sequence
 
 
-def save_sequence(digit_sequence):
+def save_sequence(digit_sequence, aug=False):
     """
     Use as helper method.
 
     Saves a PIL Image object to the current directory as unique file.
     """
-    # Count number of generated sequence files.
+    if (aug):
 
-    num_sequence_files = len(glob.glob1(os.getcwd(), 'sequence*'))
+        # Count number of generated sequence files minus one.
 
-    digit_sequence.save('sequence{}.png'.format(num_sequence_files))
-    print("Saved sequence{}.png".format(num_sequence_files))
+        num_sequence_files = len(glob.glob1(os.getcwd(), 'sequence*')) - 1
+
+        digit_sequence.save('aug_sequence{}.png'.format(num_sequence_files))
+        print("Saved aug_sequence{}.png".format(num_sequence_files))
+
+    else:
+
+        # Count number of generated sequence files.
+
+        num_sequence_files = len(glob.glob1(os.getcwd(), 'sequence*'))
+
+        digit_sequence.save('sequence{}.png'.format(num_sequence_files))
+        print("Saved sequence{}.png".format(num_sequence_files))
 
 
 def parse_args():
@@ -242,7 +260,7 @@ def parse_args():
     return args
 
 
-def augment_sequence(greyscale_sequence):
+def augment_sequence(greyscale_sequence, image_height):
     """
     Use as helper method.
 
@@ -261,11 +279,14 @@ def augment_sequence(greyscale_sequence):
 
     # Alter the width.
 
-    background = np.uint8(alter_width(background, args.image_width) * 255)
+    background = np.uint8(alter_width(background, image_height,
+                                      args.image_width) * 255)
 
     # Convert greyscale sequence to RGB for compatibility.
 
-    digit_sequence = np.empty((28, args.image_width, 3), dtype=np.uint8)
+    digit_sequence = np.empty((image_height, args.image_width, 3),
+                              dtype=np.uint8)
+
     digit_sequence[:, :, 0] = np.uint8(greyscale_sequence * 255)
     digit_sequence[:, :, 1] = digit_sequence[:, :, 0]
     digit_sequence[:, :, 2] = digit_sequence[:, :, 1]
@@ -291,15 +312,15 @@ if __name__ == '__main__':
 
     spacing_range = (args.spacing_range[0], args.spacing_range[1])
 
-    # Generate an image sequence.
+    # Generate an image sequence, get image_height.
 
-    digit_sequence = generate_numbers_sequence(digits=args.digits,
-                                               spacing_range=spacing_range,
-                                               image_width=args.image_width)
+    digit_sequence, image_height = generate_numbers_sequence(digits=args.digits,
+                                                             spacing_range=spacing_range,
+                                                             image_width=args.image_width)
 
     # Save generated sequence to file.
 
-    save_sequence(numpy2im(digit_sequence))
+    save_sequence(numpy2im(digit_sequence), aug=False)
 
     # Use if 'mnistm' is specified in the arg 'augmentation'.
 
@@ -307,8 +328,8 @@ if __name__ == '__main__':
 
         # Augment sequence
 
-        augmented_sequence = augment_sequence(digit_sequence)
+        augmented_sequence = augment_sequence(digit_sequence, image_height)
 
         # Save generated sequence to file.
 
-        save_sequence(augmented_sequence)
+        save_sequence(augmented_sequence, aug=True)

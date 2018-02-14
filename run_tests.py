@@ -28,7 +28,7 @@ class RunTests(unittest.TestCase):
 
     data = pkl.load(open('mnist.pkl', 'rb'), encoding='latin1')
 
-    height = 28
+    height = int(np.sqrt(data[0][0][0].shape[0]))
     width = 100
 
     sequence = generate_numbers_sequence.generate_numbers_sequence([1], (4, 5),
@@ -40,7 +40,7 @@ class RunTests(unittest.TestCase):
 
     filenames = glob.glob1(os.getcwd(), "sequence*")
 
-    def test_PklFile(self):
+    def test_MnistPklFile(self):
         """Test pickle data dimensions."""
         self.assertEqual(RunTests.data[0][0].shape, (50000, 784),
                          'Training data shape is not (50000, 784)')
@@ -80,22 +80,22 @@ class RunTests(unittest.TestCase):
 
     def test_ImageHeight(self):
         """Test generated sequence height."""
-        self.assertEqual(RunTests.sequence.shape[0], RunTests.height,
+        self.assertEqual(RunTests.sequence[0].shape[0], RunTests.height,
                          'Sequence height is not equal to 28.')
 
     def test_ImageWidth(self):
         """Test generated sequence width."""
-        self.assertEqual(RunTests.sequence.shape[1], RunTests.width,
+        self.assertEqual(RunTests.sequence[0].shape[1], RunTests.width,
                          'Sequence width is not equal to input width.')
 
     def test_ImageType(self):
         """Test generated sequence dtype."""
-        self.assertEqual(RunTests.sequence.dtype, np.dtype('float32'),
+        self.assertEqual(RunTests.sequence[0].dtype, np.dtype('float32'),
                          'Sequence is not a float type.')
 
     def test_ImageElementRange(self):
         """Test generated sequence element range."""
-        self.assertEqual((RunTests.sequence > 1).sum(), 0,
+        self.assertEqual((RunTests.sequence[0] > 1).sum(), 0,
                          'Sequence contains values greater than 1.')
 
     def test_ScriptRuntimeSuccess(self):
