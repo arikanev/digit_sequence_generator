@@ -6,10 +6,10 @@ A script and API for generating and augmenting a sequence of digits based on a s
 
 Running `generate_numbers_sequence.py` with augmentation saves a pair of image sequences with the following filenames:
 
-(Where X is an integer denoting number of existing sequence files + 1)
-
 * sequenceX.png
 * aug_sequenceX.png
+
+*(Where X is an integer denoting number of existing sequence files + 1)*
 
 These files contain the exact same digit images in their sequences, and differ only by RGB and Greyscale value.
 
