@@ -64,6 +64,7 @@ In the future, tests should be added to:
 ### Future plans
 Could/Should focus on:
   
-* Expanding on the number of augmentation methods.
+* Modifying mnistm augmentation to clearly visualize the full digit sequence.
+* Adding parse code to enable reading a sequence of digits without spaces, or with commas.
 * Adding an option for sequence margins to be extended, as opposed to stretching the entire image.
-* More
+* Expanding on the number of augmentation methods.
