@@ -4,7 +4,7 @@
 
 A script and API for generating and augmenting a sequence of digits based on a specified input list of digits. The purpose of this code is to aid in training classifiers and generative deep-learning models.
 
-
+<br><br>
 Running `generate_numbers_sequence.py` with augmentation saves a pair of image sequences with the following filenames:
 
 * sequenceX.png
@@ -20,6 +20,7 @@ These files contain the exact same digit images in their sequences, and differ o
 * Time is saved by vectorizing the method to generate an image.
 * Space is saved by recomputing the method to generate an image for every digit in an input list.
 
+<br><br>
 ### To run as a script:
 
 ```
@@ -34,18 +35,21 @@ Currently the augmentation supported is 'mnistm', which consists of mnist masks 
 
 As of now you can only access augmentation options when running generate_numbers_sequence as a script.
 
-### To call as an API in any python code:
+<br><br>
+### To call as an API in python code:
 
 ```
 import generate_numbers_sequence
 
 sequence = generate_numbers_sequence.generate_numbers_sequence([digit_list], (range_tuple), width_int)
 ```
+
+<br><br>
 ### Testing
 
 To test the above API and script, run `python run_tests.py`.
 
-
+<br><br>
 In the future, tests should be added to: 
 
 * Assert the shape match between sequenceX.png and aug_sequenceX.png.
@@ -54,7 +58,7 @@ In the future, tests should be added to:
 *Ensure lack of runtime errors when generating images from other datasets.
 *(For generalizability/extensability)*
 
-
+<br><br>
 Future work should focus on:
   
 * Expanding on the number of augmentation methods.
