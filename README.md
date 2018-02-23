@@ -19,7 +19,7 @@ A script and API for generating and augmenting a sequence of digits based on a s
 ```cd digit_sequence_generator```
 
 ```unzip -a data.zip```
-
+<br/><br>
 ## Running
 
 Running `generate_numbers_sequence.py` with augmentation saves a pair of image sequences with the following filenames:
