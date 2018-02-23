@@ -17,6 +17,7 @@ A script and API for generating and augmenting a sequence of digits based on a s
 
 ### 2. cd into digit_sequence_generator, and de-compress data files:
 ```cd digit_sequence_generator```
+
 ```unzip -a data.zip```
 
 ### 3. You're done!
