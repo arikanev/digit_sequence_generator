@@ -62,7 +62,7 @@ sequence, height = generate_numbers_sequence.generate_numbers_sequence([digit_li
 *(The height value is translated unchanged from the sampled digit image height)*
 
 
-### Testing
+## Testing
 
 To test the above API and script, run `python run_tests.py`.
 
@@ -73,7 +73,7 @@ In the future, tests should be added to:
 *(For generalizability/extensability)*
 
 
-### Future plans
+## Future plans
 Could/Should focus on:
   
 * Modifying mnistm augmentation to clearly visualize the full digit sequence.
