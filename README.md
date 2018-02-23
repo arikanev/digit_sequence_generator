@@ -4,6 +4,17 @@
 
 A script and API for generating and augmenting a sequence of digits based on a specified input list of digits. The purpose of this code is to aid in training classifiers and generative deep-learning models.
 <br/><br>
+
+## Set-up
+
+### 1. Clone the repo in a local directory:
+```git clone https://github.com/arikanev/digit_sequence_generator.git```
+
+### 2. cd into digit_sequence_generator and de-compress data files with:
+```unzip -a data.zip```
+### 3. You're done!
+<br/><br>
+
 Running `generate_numbers_sequence.py` with augmentation saves a pair of image sequences with the following filenames:
 
 * 'sequenceX.png'
