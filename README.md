@@ -60,8 +60,7 @@ sequence, height = generate_numbers_sequence.generate_numbers_sequence([digit_li
 * An int value representing sequence height.
 
 *(The height value is translated unchanged from the sampled digit image height)*
-
-
+<br/><br>
 ## Testing
 
 To test the above API and script, run `python run_tests.py`.
@@ -71,8 +70,7 @@ In the future, tests should be added to:
 * Assert the shape match between sequenceX.png and aug_sequenceX.png.
 * Ensure lack of runtime errors when generating images from other datasets.
 *(For generalizability/extensability)*
-
-
+<br/><br>
 ## Future plans
 Could/Should focus on:
   
