@@ -41,6 +41,8 @@ optional arguments:
 -a AUGMENTATION (str)
 ```
 
+Example: ``` python generate_numbers_sequence.py -d 4 5 2 1 3 4 4 3 2 1 2 4 -r 5 40 -w 300 -a mnistm ```
+
 Currently the augmentation supported is 'mnistm', which consists of mnist masks super-imposed on imagenet image backgrounds. A full mnistm dataset can be found [here](http://akanev.com/datasets).
 
 *(As of now you can only access augmentation options when running generate_numbers_sequence as a script.)*
@@ -53,6 +55,8 @@ import generate_numbers_sequence
 
 sequence, height = generate_numbers_sequence.generate_numbers_sequence([digit_list], (range_tuple), width_int)
 ```
+
+Example: ``` sequence, height = generate_numbers_sequence.generate_numbers_sequence([4, 5, 6, 2, 3], (1,30), 100) ```
 
 `generate_numbers_sequence.generate_numbers_sequence(d, r, w)` returns 2 values:
 
