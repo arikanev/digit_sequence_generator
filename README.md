@@ -2,7 +2,13 @@
 
 ## generate_numbers_sequence.py
 
-A script and API for generating and augmenting a sequence of digits based on a specified input list of digits. The purpose of this code is to aid in training classifiers and generative deep-learning models.
+A script and API for generating and augmenting a sequence of digits based on a specified input list of digits. The purpose of this code is to aid in training classifiers and generative deep-learning models. 
+
+`generate_numbers_sequence.py` is a semi-vectorized implementation:
+
+* Time is saved by vectorizing the method to generate an image.
+* Space is saved by recomputing the method to generate an image for every digit in an input list.
+
 <br/><br>
 
 ## Set-up
@@ -26,12 +32,6 @@ Running `generate_numbers_sequence.py` with augmentation saves a pair of image s
 *(Where X is an integer denoting number of existing sequence files + 1)*
 <br/><br>
 These files contain the exact same digit images in their sequences, and differ only by RGB and Greyscale value.
-
-`generate_numbers_sequence.py` is a semi-vectorized implementation:
-
-* Time is saved by vectorizing the method to generate an image.
-* Space is saved by recomputing the method to generate an image for every digit in an input list.
-
 
 ### To run as a script:
 
