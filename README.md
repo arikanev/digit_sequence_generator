@@ -10,10 +10,14 @@ A script and API for generating and augmenting a sequence of digits based on a s
 ### 1. Clone the repo in a local directory:
 ```git clone https://github.com/arikanev/digit_sequence_generator.git```
 
-### 2. cd into digit_sequence_generator and de-compress data files with:
+### 2. cd into digit_sequence_generator, and de-compress data files:
+```cd digit_sequence_generator```
 ```unzip -a data.zip```
+
 ### 3. You're done!
 <br/><br>
+
+## Running
 
 Running `generate_numbers_sequence.py` with augmentation saves a pair of image sequences with the following filenames:
 
