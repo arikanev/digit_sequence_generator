@@ -8,7 +8,6 @@ A script and API for generating and augmenting a sequence of digits based on a s
 
 * Time is saved by vectorizing the method to generate an image.
 * Space is saved by recomputing the method to generate an image for every digit in an input list.
-
 <br/><br>
 
 ## Set-up
