@@ -143,12 +143,6 @@ def sample_image(X, y, digit):
 
     pool = X[idx_mask]
 
-    """
-    Trade-off on random selection
-    -----------------------------
-    Rather than another dependancy, we use numpy and a more complex line.
-    """
-
     # Sample random mnist image from pool.
 
     return pool[np.random.randint(len(pool))]
@@ -274,8 +268,6 @@ def augment_sequence(greyscale_sequence, image_height):
     # Get a random imagenet background from array.
 
     background = background[np.random.randint(len(background))]
-
-    Image.fromarray(background).save('before_alter_width.png')
 
     # Alter the width.
 
